@@ -195,25 +195,77 @@
             <div class="side-menu col-md-4">
               <ul class="row list-unstyled">
                 <li class="side-menu-item">
-                  <a class="" href="">HOME</a><i class="fas fa-angle-right"></i>
+                  <div class="clickable">
+                    <a>HOME</a><i class="fas fa-angle-right"></i>
+                  </div>
+                  <ul class="list-unstyled">
+                    <li class="dontline">
+                      <a href="">Main Home</a>
+                    </li>
+                    <li><a href="">Grid Home</a></li>
+                    <li><a href="">Flower Shop</a></li>
+                    <li><a href="">Animated Slider</a></li>
+                    <li><a href="">Metro Showcase</a></li>
+                    <li><a href="">Carousel Showcase</a></li>
+                    <li><a href="">Landing</a></li>
+                  </ul>
                 </li>
                 <li class="side-menu-item">
-                  <a class="" href="">PAGES</a
-                  ><i class="fas fa-angle-right"></i>
+                  <div class="clickable">
+                    <a class="list-unstyled">PAGES</a
+                    ><i class="fas fa-angle-right"></i>
+                  </div>
+                  <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">FAQ Page</a></li>
+                    <li><a href="">Contact Us</a></li>
+                  </ul>
                 </li>
                 <li class="side-menu-item">
-                  <a class="" href="">SHOP</a><i class="fas fa-angle-right"></i>
+                  <div class="clickable">
+                    <a class="">SHOP</a><i class="fas fa-angle-right"></i>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="shopSideDropdown">
+                        Product Type <i class="fas fa-angle-right"></i>
+                        <ul>
+                          <li><a href="product.html">Standart Products</a></li>
+                          <li><a href="">FAQ Page</a></li>
+                          <li><a href="">Contact Us</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="shopSideDropdown">
+                        FAQ Page <i class="fas fa-angle-right"></i>
+                        <ul>
+                          <li><a href="">About Us</a></li>
+                          <li><a href="">FAQ Page</a></li>
+                          <li><a href="">Contact Us</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="shopSideDropdown">
+                        Contact Us <i class="fas fa-angle-right"></i>
+                        <ul>
+                          <li><a href="">About Us</a></li>
+                          <li><a href="">FAQ Page</a></li>
+                          <li><a href="">Contact Us</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
                 </li>
                 <li class="side-menu-item">
-                  <a class="" href="">PORTFOLIO</a
-                  ><i class="fas fa-angle-right"></i>
+                  <a class="">PORTFOLIO</a><i class="fas fa-angle-right"></i>
                 </li>
                 <li class="side-menu-item">
-                  <a class="" href="">BLOG</a><i class="fas fa-angle-right"></i>
+                  <a class="">BLOG</a><i class="fas fa-angle-right"></i>
                 </li>
                 <li class="side-menu-item">
-                  <a class="" href="">ELEMENTS</a
-                  ><i class="fas fa-angle-right"></i>
+                  <a class="">ELEMENTS</a><i class="fas fa-angle-right"></i>
                 </li>
               </ul>
               <i class="fas fa-times"></i>
@@ -225,12 +277,39 @@
             >
               <i class="fas fa-search me-2"></i>
               <div
-                class="shop d-flex justify-content-around align-items-center"
+                class="
+                  shop
+                  hoverBlock
+                  d-flex
+                  justify-content-around
+                  align-items-center
+                "
               >
-                <i class="fas fa-shopping-bag me-3"></i>
-                <div class="cart d-flex align-items-center">
+                <i class="fas shopItem fa-shopping-bag me-3">
+                  <p class="countProduct">0</p>
+                </i>
+                <div class="cart hoverBlock shopItem d-flex align-items-center">
                   <span id="cart" class="me-1">CART</span>
-                  <div class="price">($ <span>0</span>)</div>
+                  <div class="price">($ <span class="totalPrice">0</span>)</div>
+                </div>
+                <div class="flower-container navbar-dropdown">
+                  <div class="flower-body">
+                    <div id="flower-list"></div>
+                    <div
+                      class="
+                        totalPriceDiv
+                        d-flex
+                        align-items-center
+                        justify-content-between
+                      "
+                    >
+                      <span>TOTAL:</span>
+                      <div class="priceWithCurrency">
+                        <span>$</span>
+                        <span class="totalPriceList">0</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

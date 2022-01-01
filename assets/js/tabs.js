@@ -55,3 +55,79 @@ $(document).ready(function () {
   });
 
 });
+
+
+
+let flowerList = document.querySelector('#flower-list');
+let deleteFlower = document.querySelector(".fa-times");
+
+
+
+function productCount(basket) {
+  let countElement = document.querySelector(".countProduct");
+  let count = 0;
+
+  basket?.forEach((p) => {
+    count += p.count;
+  });
+  countElement.innerText = count;
+}
+
+function totalPrice(basket) {
+  let priceElement = document.querySelector(".totalPrice");
+  let ElementPrices = document.querySelector(".totalPriceList");
+  let total = basket?.reduce((total, p) => {
+    return (total += p.price * p.count);
+  }, 0);
+  priceElement.innerText = total ?? 0;
+  ElementPrices.innerText = total ?? 0;
+}
+
+
+
+Refresh();
+
+
+function deleteItemFromLocalStorage(id) {
+  let basket = JSON.parse(localStorage.getItem("basket"));
+  let newBasket = basket.filter((p) => p.id != id);
+  localStorage.setItem("basket", JSON.stringify(newBasket));
+  Refresh();
+}
+
+
+function addItemToBasketList(basket) {
+  let basketArray = basket?.map((p) => {
+    return `<div class="flower-item">
+    <div class="itemImg">
+      <img src="${p.image}" />
+    </div>
+    <div class="flower-body">
+      <div class="flower-title">
+        <p class="">${p.flower}</p>
+      </div>
+      <div class="flower-text">
+        <span class="count">${p.count}</span>
+        x
+        <span class="price">${p.price}</span>
+      </div>
+    </div>
+    <i class="fas fa-times" onclick="deleteItemFromLocalStorage(${p.id})"></i>
+  </div>`
+  });
+
+
+  if(basketArray && basketArray?.length > 0){
+    flowerList.innerHTML = basketArray.join("");
+  }
+  else{
+    flowerList.innerHTML = '<div class="text-center">No products in the cart.</div>';
+  }
+}
+
+function Refresh() {
+  let basket = JSON.parse(localStorage.getItem("basket"));
+  addItemToBasketList(basket);
+  productCount(basket);
+  totalPrice(basket);
+}

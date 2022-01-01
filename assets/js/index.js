@@ -1,3 +1,14 @@
+const sortClick = (e, name)=>{
+  $(e).siblings().css({color: "#000000"})
+  $(e).css({color: "#f34f3f"})
+  const targets = document.querySelectorAll(`.flowers .flowers-item`).forEach(item => item.style.display = 'block');
+  if(name)
+  document.querySelectorAll(`.flowers .flowers-item:not(.${name})`).forEach(element => {
+    element.style.display = "none"
+  });
+}
+
+
 $(document).ready(function () {
   $(".fa-bars").click(function () {
     $(".side-menu").css({ width: "100%", transition: "0.3s" });
@@ -29,12 +40,16 @@ $(document).ready(function () {
     }
   });
 
-  $('.side-menu-item').click(function(){
+  $('.side-menu-item .clickable').click(function(){
+    $(this).parent().children('ul').slideToggle();
+    $(this).parent().siblings('.side-menu-item').children('ul').slideUp();
+  });
+
+
+  $('.shopSideDropdown').click(function(){
     $(this).children('ul').slideToggle();
-    $(this).siblings('.side-menu-item').children('ul').slideToggle();
 
   })
-
   const headerImages = [...document.querySelectorAll(".header-slider img")];
 
   $(".main-slider").owlCarousel({
