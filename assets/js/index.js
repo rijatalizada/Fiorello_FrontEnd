@@ -29,6 +29,12 @@ $(document).ready(function () {
     }
   });
 
+  $('.side-menu-item').click(function(){
+    $(this).children('ul').slideToggle();
+    $(this).siblings('.side-menu-item').children('ul').slideToggle();
+
+  })
+
   const headerImages = [...document.querySelectorAll(".header-slider img")];
 
   $(".main-slider").owlCarousel({
@@ -83,7 +89,8 @@ $(document).ready(function () {
 
 let addToCart = document.querySelectorAll(".addToCart");
 let flowerList = document.querySelector('#flower-list');
-let icon = document.querySelector(".fa-times");
+let deleteFlower = document.querySelector(".fa-times");
+
 
 
 
@@ -137,41 +144,18 @@ function productCount(basket) {
 
 function totalPrice(basket) {
   let priceElement = document.querySelector(".totalPrice");
+  let ElementPrices = document.querySelector(".totalPriceList");
   let total = basket?.reduce((total, p) => {
     return (total += p.price * p.count);
   }, 0);
   priceElement.innerText = total ?? 0;
+  ElementPrices.innerText = total ?? 0;
 }
 
 
-
-icon.addEventListener("click", function () {
-  addedItem.classList.toggle("d-none");
-  console.log(addedItem);
-});
 
 Refresh();
 
-
-function countAction(id, action) {
-  let basket = JSON.parse(localStorage.getItem("basket"));
-
-  let existProduct = basket.find((p) => p.id == id);
-
-  if(existProduct && action == "plus"){
-    existProduct.count++
-  }
-  else if(existProduct && action == "minus"){
-    if(existProduct.count < 2){
-      deleteItemFromLocalStorage(id)
-      return
-    }
-    existProduct.count--
-  }
-
-  localStorage.setItem("basket", JSON.stringify(basket));
-  Refresh();
-}
 
 function deleteItemFromLocalStorage(id) {
   let basket = JSON.parse(localStorage.getItem("basket"));
@@ -197,12 +181,17 @@ function addItemToBasketList(basket) {
         <span class="price">${p.price}</span>
       </div>
     </div>
-    <div class="fas fa-times"></div>
+    <i class="fas fa-times" onclick="deleteItemFromLocalStorage(${p.id})"></i>
   </div>`
   });
 
-  flowerList.innerHTML = basketArray && basketArray?.length > 0 ? basketArray.join("") : '<div class="text-center">No products in the cart.</div>';
 
+  if(basketArray && basketArray?.length > 0){
+    flowerList.innerHTML = basketArray.join("");
+  }
+  else{
+    flowerList.innerHTML = '<div class="text-center">No products in the cart.</div>';
+  }
 }
 
 function Refresh() {

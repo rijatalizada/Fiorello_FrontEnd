@@ -304,10 +304,6 @@ body nav .col-lg-6 .side-menu li:first-child a {
   border-bottom: 1px solid black;
 }
 
-body nav .col-lg-6 .side-menu li:first-child ul {
-  display: none;
-}
-
 body nav .col-lg-6 .side-menu li:first-child ul li {
   padding: 4% 0 0 0;
 }
@@ -329,6 +325,7 @@ body nav .col-lg-6 .side-menu li a {
 
 body nav .col-lg-6 .side-menu li ul {
   display: none;
+  list-style: none;
 }
 
 body nav .col-lg-6 .side-menu li ul li {
@@ -400,7 +397,7 @@ body nav .col-lg-2 .additional-nav .shop {
   position: relative;
 }
 
-body nav .col-lg-2 .additional-nav .shop:hover #flower-list {
+body nav .col-lg-2 .additional-nav .shop:hover .flower-container {
   display: block;
 }
 
@@ -425,18 +422,36 @@ body nav .col-lg-2 .additional-nav .shop .fa-shopping-bag .countProduct {
   border-radius: 50%;
 }
 
-body nav .col-lg-2 .additional-nav .shop #flower-list {
-  height: auto;
+body nav .col-lg-2 .additional-nav .shop .flower-container {
   position: absolute;
   right: 60px;
-  top: 40px;
+  top: 100%;
   z-index: 100;
   border: 1px solid #f1eded;
   background-color: white;
   display: none;
 }
 
-body nav .col-lg-2 .additional-nav .shop #flower-list .text-center {
+body nav .col-lg-2 .additional-nav .shop .flower-container:hover {
+  display: block;
+}
+
+body nav .col-lg-2 .additional-nav .shop .flower-container .totalPriceDiv {
+  padding: 10px 10px 10px 10px;
+}
+
+body nav .col-lg-2 .additional-nav .shop .flower-container .totalPriceDiv > span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+body nav .col-lg-2 .additional-nav .shop .flower-container .totalPriceDiv .priceWithCurrency span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+body nav .col-lg-2 .additional-nav .shop .flower-container .text-center {
   width: 200px;
   padding: 15px;
 }

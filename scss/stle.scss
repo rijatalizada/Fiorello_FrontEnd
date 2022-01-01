@@ -232,7 +232,7 @@ body {
             border-bottom: 1px solid black;
           }
           ul {
-            display: none;
+            
             li {
               padding: 4% 0 0 0;
               a {
@@ -251,6 +251,7 @@ body {
           }
           ul {
             display: none;
+            list-style: none;
             li {
               padding: 4% 0 0 0;
 
@@ -304,11 +305,12 @@ body {
         }
         .shop {
           position: relative;
-          &:hover{
-            #flower-list{
+          &:hover {
+            .flower-container {
               display: block;
             }
           }
+
           #cart {
             letter-spacing: 2px;
             font-size: 12px;
@@ -327,16 +329,35 @@ body {
               border-radius: 50%;
             }
           }
-          #flower-list {
-            height: auto;
+          .flower-container {
+            // height: auto;
+            
+            &:hover{
+              display: block;
+            }
+            
             position: absolute;
             right: 60px;
-            top: 40px;
+            top: 100%;
             z-index: 100;
             border: 1px solid rgb(241, 237, 237);
             background-color: white;
             display: none;
-            .text-center{
+            .totalPriceDiv {
+              padding: 10px 10px 10px 10px;
+              > span {
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+              }
+              .priceWithCurrency {
+                span {
+                  font-size: 12px;
+                  font-weight: 500;
+                }
+              }
+            }
+            .text-center {
               width: 200px;
               padding: 15px;
             }
